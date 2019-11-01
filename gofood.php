@@ -43,7 +43,7 @@ $headers[] = 'X-Location: -6.405821,106.064193';
     $fwrite1 = fwrite($fopen1, "TOKEN => ".$token." \n NOMOR => ".$number." \n");
     fclose($fopen1);
     echo "[+] File Token saved in ".$live." \n\n";
-    echo "[+] Process Redeem GOFOODBOBA07 \n";
+    echo "[+] Process Redeem Vocher GOFOOD 20K \n";
 				$data3 = '{"promo_code":"GOFOODBOBA07"}';
 				$claim = curl('https://api.gojekapi.com/go-promotions/v1/promotions/enrollments', $data3, $headers);
 				$claims = json_decode($claim[0]);
@@ -52,7 +52,7 @@ $headers[] = 'X-Location: -6.405821,106.064193';
 					echo " Tunggu 10 Detik...\n";
 					sleep(10);
 					echo "\n";
-					echo "[+] Process Redeem COBAINGOJEK (1) \n";
+					echo "[+] Process Redeem Vocher GORIDE 10K (1) \n";
 				$data4 = '{"promo_code":"COBAINGOJEK"}';
 				$claim1 = curl('https://api.gojekapi.com/go-promotions/v1/promotions/enrollments', $data4, $headers);
 				$claims1 = json_decode($claim1[0]);
@@ -61,7 +61,7 @@ $headers[] = 'X-Location: -6.405821,106.064193';
 					echo " Tunggu 10 Detik... \n";
 					sleep(10);
 					echo "\n";
-					echo "[+] Proses Redeem AYOCOBAGOJEK 10k (2) \n";
+					echo "[+] Proses Redeem Vocher GORIDE 10k (2) \n";
                 $data5 = '{"promo_code":"AYOCOBAGOJEK"}';
                 $claim2 = curl('https://api.gojekapi.com/go-promotions/v1/promotions/enrollments', $data5, $headers);
                 $claims2 = json_decode($claim2[0]);
@@ -70,24 +70,22 @@ $headers[] = 'X-Location: -6.405821,106.064193';
                     echo " Tunggu 10 Detik...\n";
                     sleep(10);
                     echo "\n";
-                    
-$secret1 = '201a0da3-762c-44b0-8c70-1e120ba3bada'; //BEARERTOKENAKUNUTAMA
-$secret2 = 'xxxx';
-$secret3 = 'xxxx';
-$pin = "123123"; //PINGOPAY
+                                     
+$secret1 = 'xxxxxxx'; //BEARERTOKENAKUNUTAMA
+$pin = "xxxxxx"; //PINGOPAY
 $headers = array();
 $header[] = 'Content-Type: application/json';
 $header[] = 'X-AppVersion: 3.40.0';
 $header[] = "X-Uniqueid: ac94e5d0e7f3f".rand(111,999);
 $header[] = 'X-Location: -6.405821,106.064193';
-$header[] = 'Authorization: Bearer '.rand($secret1,$secret2,$secret3);
+$header[] ='Authorization: Bearer '.$secret1;
 $header[] = 'pin:'.$pin.'';
 
 					echo "[+] Process Transfer Gopay \n";
 					$getqrid = curl('https://api.gojekapi.com/wallet/qr-code?phone_number=%2B'.$number.'', null, $header);
                     $jsqrid = json_decode($getqrid[0]);
                     $qrid = $jsqrid->data->qr_id;
-                    $send = rand(1,10);
+                    $send = rand(1,5);
                     $hasil = $send;
                     
 $tf = curl('https://api.gojekapi.com/v2/fund/transfer', '{"amount":"'.$send.'","description":"ZAL ","qr_id":"'.$qrid.'"}', $header);
@@ -106,7 +104,7 @@ $detail = curl('https://api.gojekapi.com/wallet/profile/detailed', null, $header
                     $saldo = $saldoo->data->balance;
                     echo "[+] Sisa Saldo Gopay = $saldo \n";
                     echo "\n";
-                    echo "Proses Telah Selesai Happy Mangan Slurrr .. \n";
+                    echo "Proses Telah Selesai... \n";
 
     }
 					
